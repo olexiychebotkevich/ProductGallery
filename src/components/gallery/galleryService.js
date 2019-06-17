@@ -2,6 +2,6 @@ import axios from "axios";
 
 export default class GalleryService {
     static getListData() {
-        return axios.get('https://jsonplaceholder.typicode.com/users')
+        return axios.get('http://localhost:100/api/test.php')
     };
 }

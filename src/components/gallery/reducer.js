@@ -1,5 +1,5 @@
 import update from '../../helpers/update';
-import JonService from "./galleryService";
+import GalleryService from "./galleryService";
 
 export const GET_LIST_DATA_STARTED = "gallery/GET_LIST_DATA_STARTED";
 export const GET_LIST_DATA_SUCCESS = "gallery/GET_LIST_DATA_SUCCESS";
@@ -50,7 +50,7 @@ export const getListData = () => {
     return (dispatch) => {
         dispatch(getListActions.started());
 
-        JonService.getListData()
+        GalleryService.getListData()
             .then((response) => {
                 dispatch(getListActions.success(response));
             })
