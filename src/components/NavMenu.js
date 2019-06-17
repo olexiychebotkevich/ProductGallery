@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavMenu extends Component {
     state = {}
@@ -14,7 +15,7 @@ class NavMenu extends Component {
                         <div className="d-sm-inline-flex flex-sm-row-reverse collapse navbar-collapse">
                             <ul className="navbar-nav flex-grow">
                                 <li className="nav-item">
-                                    <a className="text-dark nav-link" href="/">Home</a>
+                                    <Link className="text-dark nav-link" to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
                                     <a className="text-dark nav-link" href="/register">Register</a>
@@ -26,6 +27,9 @@ class NavMenu extends Component {
                                 </li>
                                 <li className="nav-item">
                                     <a className="text-dark nav-link" href="/login">Login</a>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="text-dark nav-link" to="/gallery">Галерея</Link>
                                 </li>
                             </ul>
                         </div>
