@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import * as productActions from './reducer';
 import get from 'lodash.get';
+import SpinnerWidget from '../spinner';
+import {withRouter} from 'react-router-dom'
 
 class ProductWidgetContainer extends Component {
     constructor(props) {
@@ -10,7 +12,20 @@ class ProductWidgetContainer extends Component {
     componentDidMount() {
         this.props.getListData();
     }
+
+
+
+    redirectToAddGallery = (e) => {
+        const { history } = this.props;
+        e.preventDefault();
+        console.log('-----переходимо на сторінку додавання----');
+        history.push('/product/add');
+    }
+    
+
     render() { 
+        
+         const {isListLoading} = this.props;
         console.log('----this props Product-----', this.props);
         const listContent = this.props.list.map(item => {
             return (
@@ -35,7 +50,7 @@ class ProductWidgetContainer extends Component {
                 <div className="container">
 
                     <h1 className="font-weight-light text-center text-lg-left mt-4 mb-0">PRODUCTS: </h1>
-
+                    <button className="btn btn-success" onClick={this.redirectToAddGallery} >Add photo</button>
                     <hr className="mt-2 mb-5" />
 
                     <div className="row text-center text-lg-left">
@@ -44,6 +59,7 @@ class ProductWidgetContainer extends Component {
                     </div>
 
                 </div>
+                <SpinnerWidget loading={isListLoading}></SpinnerWidget>
             </div>
 
 
@@ -66,5 +82,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
  
-const ProductWidget = connect(mapStateToProps, mapDispatchToProps)(ProductWidgetContainer);
+const ProductWidget = withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductWidgetContainer));
 export default ProductWidget;

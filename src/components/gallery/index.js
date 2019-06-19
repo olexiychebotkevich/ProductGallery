@@ -16,7 +16,7 @@ class GalleryWidgetContainer extends Component {
             return (
             <div key={item.id} className="col-lg-3 col-md-4 col-6">
                 <a href="#" className="d-block mb-4 h-100">
-                    <img className="img-fluid img-thumbnail" src={item.name} alt="" />
+                    <img className="img-fluid img-thumbnail" src={item.path} alt="" />
                 </a>
             </div>
             )

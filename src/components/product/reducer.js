@@ -1,5 +1,6 @@
 import update from '../../helpers/update';
 import ProductService from "./productService";
+import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 
 export const GET_LIST_DATA_STARTED = "product/GET_LIST_DATA_STARTED";
 export const GET_LIST_DATA_SUCCESS = "product/GET_LIST_DATA_SUCCESS";
@@ -21,6 +22,7 @@ export const productReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case GET_LIST_DATA_STARTED: {
+            
             newState = update.set(state, 'list.loading', true);
             break;
         }
@@ -47,11 +49,15 @@ export const productReducer = (state = initialState, action) => {
 
 
 export const getListData = () => {
+    
+    
     return (dispatch) => {
+        
         dispatch(getListActions.started());
 
         ProductService.getListData()
             .then((response) => {
+               
                 dispatch(getListActions.success(response));
             })
             .catch(() => {
