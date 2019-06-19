@@ -12,6 +12,7 @@ class GalleryAddWidgetContainer extends Component {
     }
 
     onSubmitForm = (e) => {
+       // const proxyurl = "https://cors-anywhere.herokuapp.com/";
         e.preventDefault();
         console.log('----submit form---');
 
@@ -19,11 +20,11 @@ class GalleryAddWidgetContainer extends Component {
             name: this.state.name,
             image: this.state.image 
         };
-        axios.post('https://localhost:100/api/add', model)
+        axios.post('http://localhost:100/api/add', model)
             .then(
                 (resp)=>{
                     console.log('--success post--', resp.data);
-                    this.props.history.push('/gallery');
+                    this.props.history.push('/product');
                 },
                 (err) => {
                     console.log('--err problem---', err);
@@ -66,7 +67,7 @@ class GalleryAddWidgetContainer extends Component {
                                 onChange={this.onChangeInput}
                                 value={image} />
                     </div>
-                    <button type="submit" className="btn btn-info">Додати</button>
+                    <button type="submit" onSubmit={this.onSubmitForm} className="btn btn-info">Додати</button>
                 </form>
             </React.Fragment>
        
