@@ -32,7 +32,7 @@ class ProductWidgetContainer extends Component {
             <div key={item.Id} className="col-lg-3 col-md-4 col-6">
                 <h5 style={{textAlign:"center"}}>{item.Name}</h5>
                 <div href="#" className="d-block mb-4 h-100">
-                    <img className="img-fluid img-thumbnail" src={item.Path} alt="" />
+                    <img className="img-fluid img-thumbnail" src={item.Path} style={{height:"10rem"}} alt="" />
                     <div className="container-fluid">
                             <div className="col-sm-12 text-center">
                                 <p>{item.description}</p>
