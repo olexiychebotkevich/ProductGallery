@@ -4,9 +4,10 @@ import * as galleryActions from './reducer';
 import get from 'lodash.get';
 
 class GalleryWidgetContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+
+    // constructor(props) {
+    //     super(props);
+    // }
     componentDidMount() {
         this.props.getListData();
     }

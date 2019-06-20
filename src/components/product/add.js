@@ -12,7 +12,7 @@ class GalleryAddWidgetContainer extends Component {
     }
 
     onSubmitForm = (e) => {
-       // const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      
         e.preventDefault();
         console.log('----submit form---');
 
@@ -20,7 +20,7 @@ class GalleryAddWidgetContainer extends Component {
             name: this.state.name,
             image: this.state.image 
         };
-        axios.post('http://localhost:100/api/add', model)
+        axios.post('http://localhost:100/api/add.php', model)
             .then(
                 (resp)=>{
                     console.log('--success post--', resp.data);
@@ -30,7 +30,25 @@ class GalleryAddWidgetContainer extends Component {
                     console.log('--err problem---', err);
                 }
             );
+
+
+        // fetch('http://localhost:100/api/add.php',{
+        //     method: "POST",
+        //     headers: {
+        //       Accept: 'application/json',
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body:  JSON.stringify({
+        //         name: this.state.name,
+        //         image: this.state.image 
+              
+        //     }),
+        //  })
+        //  .then(function(response){ 
+        //   return response.json();   
+        //  })
     }
+
 
     onChangeInput = (e) => {
         this.setState({[e.target.name]: e.target.value});

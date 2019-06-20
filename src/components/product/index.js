@@ -6,9 +6,9 @@ import SpinnerWidget from '../spinner';
 import {withRouter} from 'react-router-dom'
 
 class ProductWidgetContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     componentDidMount() {
         this.props.getListData();
     }
@@ -29,12 +29,12 @@ class ProductWidgetContainer extends Component {
         console.log('----this props Product-----', this.props);
         const listContent = this.props.list.map(item => {
             return (
-            <div key={item.id} className="col-lg-3 col-md-4 col-6">
-                <h5 style={{textAlign:"center"}}>{item.name}</h5>
+            <div key={item.Id} className="col-lg-3 col-md-4 col-6">
+                <h5 style={{textAlign:"center"}}>{item.Name}</h5>
                 <div href="#" className="d-block mb-4 h-100">
-                    <img className="img-fluid img-thumbnail" src={item.path} alt="" />
-                    <div class="container-fluid">
-                            <div class="col-sm-12 text-center">
+                    <img className="img-fluid img-thumbnail" src={item.Path} alt="" />
+                    <div className="container-fluid">
+                            <div className="col-sm-12 text-center">
                                 <p>{item.description}</p>
                                 <button className="btn btn-success center-block" style={{ width: "50%", alignItems: "center" }}>BUY</button>
                             </div>
