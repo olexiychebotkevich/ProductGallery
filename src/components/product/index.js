@@ -21,6 +21,16 @@ class ProductWidgetContainer extends Component {
         console.log('-----переходимо на сторінку додавання----');
         history.push('/product/add');
     }
+
+    addPhotoCropper = (e) => {
+        const { history } = this.props;
+        e.preventDefault();
+        console.log('-----переходимо на сторінку додавання----');
+        history.push('/product/add/cropper');
+    }
+
+
+    
     
 
     render() { 
@@ -51,6 +61,7 @@ class ProductWidgetContainer extends Component {
 
                     <h1 className="font-weight-light text-center text-lg-left mt-4 mb-0">PRODUCTS: </h1>
                     <button className="btn btn-success" onClick={this.redirectToAddGallery} >Add photo</button>
+                    <button className="btn btn-success" onClick={this.addPhotoCropper} >Add photo cropper</button>
                     <hr className="mt-2 mb-5" />
 
                     <div className="row text-center text-lg-left">

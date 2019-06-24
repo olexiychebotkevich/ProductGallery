@@ -7,6 +7,7 @@ import Home from './components/Home';
 import GalleryWidget from './components/gallery';
 import ProductWidget from './components/product';
 import GalleryAddWidget from './components/product/add';
+import GalleryAddCropperWidget from './components/product/addcropper/index';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/gallery' component={GalleryWidget} />
           <Route exact path='/product' component={ProductWidget} />
           <Route exact path='/product/add' component={GalleryAddWidget} />
+          <Route exact path='/product/add/cropper' component={GalleryAddCropperWidget} />
         </Switch>
     </Layout>
 
