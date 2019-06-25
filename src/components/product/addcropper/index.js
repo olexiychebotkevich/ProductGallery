@@ -8,9 +8,10 @@ class GalleryAddCropperWidgetContainer extends Component {
         super(props);
         this.state={
             name:'',
-            image:'',
+            image:"https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg",
             src:'',
-            isCropped:false
+            isCropped:false,
+            croppedImage:null
           
         };
     }
@@ -38,6 +39,13 @@ class GalleryAddCropperWidgetContainer extends Component {
 
        
     }
+
+
+    croppImage = (value) => {
+       
+        this.setState({image:value});
+        this.setState({ isCropped: false });
+     }
 
 
     onChangeInput = (e) => {
@@ -89,10 +97,11 @@ class GalleryAddCropperWidgetContainer extends Component {
         
         return(
             <React.Fragment>
+                
                 <h1>Додати фото в галерею cropper</h1> 
                 <form onSubmit={this.onSubmitForm}>
                     <div className="form-group">
-                        <label htmlFor="name">Назва тварини:</label>
+                        <label htmlFor="name">Назва:</label>
                         <input type="text" 
                                 className="form-control" 
                                 name="name" 
@@ -108,11 +117,11 @@ class GalleryAddCropperWidgetContainer extends Component {
                     <img
                      onClick={this.onselectImage}
                      className="imgUpload"
-                     src="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg"></img>
+                     src={this.state.image}></img>
 
                     <input  ref={input=>this.inputFileElement=input} onChange={this.onChangeSelectFile} type="file" className="d-none"></input>
                    
-                    <CropperWidget loading={isCropped} src={src} onClose={this.onCloseCropper}/>
+                    <CropperWidget loading={isCropped} src={src} onClose={this.onCloseCropper} croppImage={this.croppImage}/>
                    
                     </div>
                     <button type="submit" onSubmit={this.onSubmitForm} className="btn btn-info">Додати</button>
