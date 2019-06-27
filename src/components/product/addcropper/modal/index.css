@@ -1,5 +1,5 @@
 .croppermodal {
-    background-color: rgba(127, 159, 200, 0.822);
+    background-color: rgba(34, 40, 46, 0.781);
     display: none;
     height: 100%;
     left: 0;
@@ -13,7 +13,6 @@
 
  .croppermodal .position-center {
     position: fixed;
-    /* background-color: #fff; */ 
     width: 175px; 
     top: 50%;
     left: 50%;
@@ -23,3 +22,15 @@
 .croppermodal .position-center i {
     font-size: 150px;
 }
+.croppermodal .box{
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+
+
+  }
+  .croppermodal .img-preview{
+    overflow: hidden;
+    border-radius: 50%;
+
+  }

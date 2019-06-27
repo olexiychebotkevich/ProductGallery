@@ -8,14 +8,6 @@ class CropperWidgetContainer extends Component {
 
 
     
-    constructor(props) {
-        super(props);
-       
-
-
-       
-    }
-
 
       onCroppPhoto=(e)=>{
        e.preventDefault();
@@ -45,6 +37,7 @@ class CropperWidgetContainer extends Component {
                                 aspectRatio={1 / 1}
                                 guides={false}
                                 viewMode={1}
+                                preview=".img-preview"
                                 dragMode="move"
                                 src={src}
                                 ref={cropper => { this.cropper = cropper; }}
@@ -54,9 +47,19 @@ class CropperWidgetContainer extends Component {
 
 
                         <div className="col-md-4">
+
+                        <div>
+                                <div className="box" style={{ width: '100%' }}>
                             <button className="btn btn-success" onClick={this.onCroppPhoto}>Обрізати фото</button>
-                            <button onClick={(e)=>onClose(e)} className="btn btn-danger">Close</button>
-                       
+                            <button onClick={(e) => onClose(e)} className="btn btn-danger">Close</button>
+
+                            <br />
+                            <div style={{ marginTop: 20 }}>
+                                <div className="img-preview" style={{ height: 300 }} />
+                            </div>
+                            </div>
+                            </div>
+
                         </div>
 
 

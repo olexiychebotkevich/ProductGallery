@@ -16,9 +16,9 @@ class GalleryWidgetContainer extends Component {
         const listContent = this.props.list.map(item => {
             return (
             <div key={item.id} className="col-lg-3 col-md-4 col-6">
-                <a href="#" className="d-block mb-4 h-100">
+                <div className="d-block mb-4 h-100">
                     <img className="img-fluid img-thumbnail" src={item.path} alt="" />
-                </a>
+                </div>
             </div>
             )
         });

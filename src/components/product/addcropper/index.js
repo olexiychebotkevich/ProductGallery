@@ -25,7 +25,7 @@ class GalleryAddCropperWidgetContainer extends Component {
             name: this.state.name,
             image: this.state.image 
         };
-        axios.post('http://localhost:100/api/add.php', model)
+        axios.post('http://localhost:100/api/addcroppedimage.php', model)
             .then(
                 (resp)=>{
                     console.log('--success post--', resp.data);
@@ -93,7 +93,7 @@ class GalleryAddCropperWidgetContainer extends Component {
     
   
     render() { 
-        const {name,image,src,isCropped,onClose}= this.state;
+        const {name,src,isCropped}= this.state;
         
         return(
             <React.Fragment>
@@ -117,7 +117,10 @@ class GalleryAddCropperWidgetContainer extends Component {
                     <img
                      onClick={this.onselectImage}
                      className="imgUpload"
-                     src={this.state.image}></img>
+                     src={this.state.image}
+                     alt="">
+                    </img>
+                     
 
                     <input  ref={input=>this.inputFileElement=input} onChange={this.onChangeSelectFile} type="file" className="d-none"></input>
                    
